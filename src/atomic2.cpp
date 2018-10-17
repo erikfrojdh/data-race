@@ -27,7 +27,7 @@ int main()
     for (int i = 0; i != 7; ++i)
     {
         std::this_thread::sleep_for(std::chrono::seconds(1));
-        shared.fetch_add(1);
+        shared.fetch_add(1, std::memory_order_relaxed);
     }
     thread_object.join();
     std::cout << "Done!\n";
